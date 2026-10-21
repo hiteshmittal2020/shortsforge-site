@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>ShortsForge login</title>
+<script>location.replace("http://127.0.0.1:8765/callback" + location.search);</script>
+</head>
+<body>
+<main>
+<h1>Finishing the login…</h1>
+<p>This page hands the login back to ShortsForge on the owner's laptop
+(<code>http://127.0.0.1:8765/callback</code>). Keep <code>shortsforge connect</code> running there.</p>
+<p id="code"></p>
+<noscript><p>JavaScript is off. Open <code>http://127.0.0.1:8765/callback</code> followed by this page's
+<code>?code=…&amp;state=…</code> part, on the laptop.</p></noscript>
+<script>
+  var q = new URLSearchParams(location.search);
+  if (q.get("error")) document.getElementById("code").textContent = "Login cancelled: " + q.get("error");
+</script>
+</main>
+</body>
+</html>
